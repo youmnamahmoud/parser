@@ -10,8 +10,8 @@ namespace scannerTokens
 {
     public class CompilerScanner
     {
-        enum R{If, Then, Else, End, Repeat, Until, Read, Write}
-        enum T{EndFile, Error,Identifier, Number,Comment,R,Char} 
+        enum ReservedWord { If, Then, Else, End, Repeat, Until, Read, Write }
+        enum TokenType { EndFile, Error, Identifier, Number, Comment, ReservedWord, Char } 
 
         struct SpecialSymbols
         {
@@ -58,7 +58,7 @@ namespace scannerTokens
                                 index++;
                                 IsComment = false;
                                 output += "}";
-                                result = T.Comment.ToString();
+                                result = TokenType.Comment.ToString();
                             }
                             else
                             { output += line[index]; }
@@ -83,7 +83,7 @@ namespace scannerTokens
                                 index++;
                                 IsComment = false;
                                 output += "**/";
-                                result = T.Comment.ToString();
+                                result = TokenType.Comment.ToString();
                             }
                             else
                             //Continue in Comment
@@ -109,18 +109,18 @@ namespace scannerTokens
                             output += line[index];
                             output += line[index + 1];
                             output += line[index + 2];
-                            result = T.Char.ToString();
+                            result = TokenType.Char.ToString();
                             AddScannerList(ref ScannerData, output, result);
                             index += 2;
                             continue;
                         }
                         //--------------------Identifier Or Reserved Word----------------------------
                         output = Identifier(line, ref index);//Get Identifier or empty
-                        result = T.Identifier.ToString();
+                        result = TokenType.Identifier.ToString();
                         if (output != "")
                         {
-                            if (Enum.IsDefined(typeof(R), output))//If Identifier is Reserved Word 
-                            { result = T.R.ToString(); }
+                            if (Enum.IsDefined(typeof(ReservedWord), output))//If Identifier is Reserved Word 
+                            { result = TokenType.ReservedWord.ToString(); }
                             AddScannerList(ref ScannerData, output, result);
                             index--;
                             continue;
@@ -128,9 +128,9 @@ namespace scannerTokens
                         //---------------------------Number Or Error-------------------
                         Error = false;
                         output = Number(line, ref index, ref Error);//Get Number(with Error or not) or empty
-                        result = T.Number.ToString();
+                        result = TokenType.Number.ToString();
                         if (Error)//If error number contains letter
-                            result = T.Error.ToString();
+                            result = TokenType.Error.ToString();
                         if (output != "")
                         {
                             AddScannerList(ref ScannerData, output, result);
@@ -162,16 +162,16 @@ namespace scannerTokens
                         //------------------------Errors-----------------------
                         if (line[index] != ' ' && line[index] != '\t')
                         {
-                            AddScannerList(ref ScannerData, line[index].ToString(), T.Error.ToString());
+                            AddScannerList(ref ScannerData, line[index].ToString(), TokenType.Error.ToString());
                         }
                     }
                 }
             }
             if (IsComment)//Error in the comment
             {
-                AddScannerList(ref ScannerData, output, T.Error.ToString());
+                AddScannerList(ref ScannerData, output, TokenType.Error.ToString());
             }
-            AddScannerList(ref ScannerData, "", T.EndFile.ToString());
+            AddScannerList(ref ScannerData, "", TokenType.EndFile.ToString());
         }
 
         private bool IsChar(char ch)

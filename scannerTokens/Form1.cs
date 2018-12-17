@@ -81,12 +81,13 @@ namespace scannerTokens
 
         private void restart_Click(object sender, EventArgs e)
         {
-            FileDataBox.Clear();
+            /*FileDataBox.Clear();
             ScannerGridView.Rows.Clear();
             ScannerGridView.Hide();
             ParserTreeView.Hide();
             parseLabel.Hide();
-            parseButton.Hide();
+            parseButton.Hide();*/
+            Application.Restart();
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -34,3 +34,12 @@ F:\fourth computer\scanner-master\scannerTokens\obj\Debug\scannerTokens.Properti
 F:\fourth computer\scanner-master\scannerTokens\obj\Debug\scannerTokens.csproj.GenerateResource.Cache
 F:\fourth computer\scanner-master\scannerTokens\bin\Debug\scannerTokens.exe
 F:\fourth computer\scanner-master\scannerTokens\bin\Debug\scannerTokens.pdb
+C:\Users\dell user\Desktop\parser-master\scannerTokens\bin\Debug\scannerTokens.exe.config
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.exe
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.pdb
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.csprojResolveAssemblyReference.cache
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.tokens.resources
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.Properties.Resources.resources
+C:\Users\dell user\Desktop\parser-master\scannerTokens\obj\Debug\scannerTokens.csproj.GenerateResource.Cache
+C:\Users\dell user\Desktop\parser-master\scannerTokens\bin\Debug\scannerTokens.exe
+C:\Users\dell user\Desktop\parser-master\scannerTokens\bin\Debug\scannerTokens.pdb

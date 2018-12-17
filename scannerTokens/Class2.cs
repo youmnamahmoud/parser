@@ -76,7 +76,7 @@ namespace scannerTokens
             }
 
         }
-
+        //-----------------------------------------------------------------------------------------------------------
         // stmt -> if-stmt | repeat-stmt | assign-stmt | read-stmt | write-stmt
         private bool Statement(ref int current, ref TreeNode CurrentNode)
         {
@@ -86,7 +86,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //----------------------------------------------------------------------------------------------------------------
         // if-stmt -> if exp then stmt-seq [else stmt-seq] end
         private bool IfStatement(ref int current, ref TreeNode CurrentNode)
         {
@@ -140,7 +140,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //------------------------------------------------------------------------------------------------------------
         // assign-stmt -> identifier := exp
         private bool AssignStatement(ref int current, ref TreeNode CurrentNode)
         {
@@ -164,7 +164,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //------------------------------------------------------------------------------------------------------------
         // read-stmt -> read identifier
         private bool ReadStatement(ref int current, ref TreeNode CurrentNode)
         {
@@ -184,7 +184,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //------------------------------------------------------------------------------------------------------------
         // write-stmt -> write exp
         private bool WriteStatement(ref int current, ref TreeNode CurrentNode)
         {
@@ -242,7 +242,7 @@ namespace scannerTokens
             current = old;
             return true;
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         // comparison-op -> < | =
         private bool ComparisonOp(ref int current, ref TreeNode CurrentNode)
         {
@@ -263,7 +263,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         // simple-exp -> term { addop term }
         private bool SimpleExpression(ref int current, ref TreeNode CurrentNode)
         {
@@ -310,7 +310,7 @@ namespace scannerTokens
                 }
             }
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         // addop -> + | -
         private bool AddOp(ref int current, ref TreeNode CurrentNode)
         {
@@ -327,7 +327,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //-------------------------------------------------------------------------------------------------------------------
         // term -> factor { mulop factor }
         private bool Term(ref int current, ref TreeNode CurrentNode)
         {
@@ -373,7 +373,7 @@ namespace scannerTokens
                 }
             }
         }
-
+        //---------------------------------------------------------------------------------------------------------------
         // mulop -> * | /
         private bool multOp(ref int current, ref TreeNode CurrentNode)
         {
@@ -389,7 +389,7 @@ namespace scannerTokens
             current = old;
             return false;
         }
-
+        //--------------------------------------------------------------------------------------------------------------------
         // factor -> (exp) | number | identifier
         private bool Factor(ref int current, ref TreeNode CurrentNode)
         {
